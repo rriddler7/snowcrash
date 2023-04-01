@@ -1,0 +1,38 @@
+> su level01
+> Password: x24ti5gi3x0ol2eh4esiuxias
+
+Традиционно в файле /etc/passwd сохраняются данные обо всех зарегистрированных пользователях, имеющих доступ к системе.
+
+Файл /etc/passwd содержит следующие записи, разделенные двоеточиями:
+Имя пользователя
+Зашифрованный пароль
+Цифровой идентификатор пользователя (UID)
+Цифровой идентификатор группы пользователя (GID)
+Полное имя пользователя (GECOS)
+Домашний каталог пользователя
+Оболочка входа в систему
+
+- Смотрим есть ли зашифрованные пароли:
+> cat /etc/passwd
+Находим: flag01:42hDRfypTqqnw:3001:3001::/home/flag/flag01:/bin/bash
+
+- Гуглим как взломать пароль юзера на линукс
+https://it.wikireading.ru/9592
+Находим:
+John the Ripper (http://www.openwall.com/john/)
+или Password Pro (http://www.insidepro.com/).
+
+Установка brew на школьный Мак читаем тут:
+https://github.com/kube/42homebrew
+
+Установка John the Ripper на Мак (будет долго):
+> brew install john-jumbo
+
+Вводим команду:
+> echo "42hDRfypTqqnw" > hash | john hash --show
+Видим:
+?:abcdefg
+1 password hash cracked, 0 left
+
+> su flag01 
+> Password: abcdefg

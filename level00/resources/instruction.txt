@@ -1,0 +1,32 @@
+level00
+
+- подключаемся по ssh к терминалу:
+> ssh level00@192.168.56.101 -p 4242
+
+- Мы находимся под логином level00
+ищем как взломать юзера flagXX
+под ним мы можем получить пароль к следующему уровню через getflag
+> find / -user flag00
+
+- Получаем список файлов (почти везде Permission denied)
+Смотрим файлы те файлы, к которым есть доступ
+> cat /rofs/usr/sbin/john или cat /usr/sbin/john
+
+- Получаем содержимое файла:
+cdiiddwpgswtgt
+
+- Пробуем ввести этот пароль:
+> su flag00
+Не верно. Думаем что это такое. Гуглим, находим что это шифр Цезаря.
+https://www.dcode.fr/chiffre-cesar
+Видим что есть расшифровка с понятными словами: nottoohardhere
+
+- Пробуем ввести этот пароль:
+> su flag00 
+> Password: nottoohardhere
+- Получаем токен через команду getflag:
+> getflag
+Check flag.Here is your token : x24ti5gi3x0ol2eh4esiuxias
+
+- Готово! Сохраняем токен в файл flag, переходим к level01
+PATH=/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/go/bin:/usr/local/munki:/Library/Apple/usr/bin
