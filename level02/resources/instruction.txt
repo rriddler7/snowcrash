@@ -1,0 +1,36 @@
+level02
+
+ls
+в новом терминале копируем файл
+
+scp -P 4242 level02@192.168.56.101:level02.pcap
+f2av5il02puano7naaf6adaaf
+chmod 777 level02.pcap
+
+google it: "how open pcap"/"чем открыть pcap"
+https://open-file.ru/types/pcap
+
+устанавливаем wireshark
+https://losst.pro/ustanovka-wireshark-v-ubuntu-20-04
+sudo apt install wireshark
+добавляем пользователя в дополнительную группу
+sudo usermod -aG wireshark $USER
+sudo wireshark
+
+открываем level02.pcap
+доходим до password
+видим, что последняя буква - ввод пользователя
+. - непечатаемый символ, backspace
+
+ft_wandr...NDRel.LOL
+ft_waNDReLOL
+
+su flag02
+ft_waNDReLOL
+getflag
+kooda2puivaav1idi4f57q8iq
+
+su level03
+kooda2puivaav1idi4f57q8iq
+
+Done!
