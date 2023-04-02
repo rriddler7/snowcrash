@@ -16,6 +16,8 @@ sudo apt install wireshark
 добавляем пользователя в дополнительную группу
 sudo usermod -aG wireshark $USER
 sudo wireshark
+Для Мак:
+> brew install wireshark
 
 открываем level02.pcap
 доходим до password
