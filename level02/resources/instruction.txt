@@ -21,6 +21,7 @@ sudo apt install wireshark
 sudo usermod -aG wireshark $USER
 sudo wireshark
 - открываем level02.pcap в wireshark
+
 2) вуаля и готово:)
 - регистрируемся на сайте https://www.cloudshark.org/
 - загружаем файл level02.pcap
@@ -28,6 +29,7 @@ sudo wireshark
 Далее общий порядок для обоих путей:
 - доходим до password
 - записываем поледовательность символов:
+
 ft_wandr...NDRel.LOL
 видим, что 7f . - непечатаемый символ, backspace, убираем его и получаем пароль:
 ft_waNDReLOL
