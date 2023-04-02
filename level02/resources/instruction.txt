@@ -10,21 +10,28 @@ chmod 777 level02.pcap
 google it: "how open pcap"/"чем открыть pcap"
 https://open-file.ru/types/pcap
 
-устанавливаем wireshark
-https://losst.pro/ustanovka-wireshark-v-ubuntu-20-04
+
+Есть два варианта анализа трафика:
+1) путь боли :)
+- устанавливаем вторую ВМ linux
+- настраиваем ssh соединение
+- устанавливаем wireshark на вторую ВМ https://losst.pro/ustanovka-wireshark-v-ubuntu-20-04
 sudo apt install wireshark
 добавляем пользователя в дополнительную группу
 sudo usermod -aG wireshark $USER
 sudo wireshark
-Для Мак:
-> brew install wireshark
+- открываем level02.pcap в wireshark
 
-открываем level02.pcap
-доходим до password
-видим, что последняя буква - ввод пользователя
-. - непечатаемый символ, backspace
+2) вуаля и готово:)
+- регистрируемся на сайте https://www.cloudshark.org/
+- загружаем файл level02.pcap
+- идем последовательно: Analysis Tools -> Follow Stream -> Hex Dump
+Далее общий порядок для обоих путей:
+- доходим до password
+- записываем поледовательность символов:
 
 ft_wandr...NDRel.LOL
+видим, что 7f . - непечатаемый символ, backspace, убираем его и получаем пароль:
 ft_waNDReLOL
 
 su flag02
