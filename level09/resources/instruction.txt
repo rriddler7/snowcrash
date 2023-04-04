@@ -1,0 +1,27 @@
+level09
+
+> ls
+
+Запускаем бинарник, он требует один аргумент
+> ./level09 
+You need to provied only one arg.
+
+Смотрим токен cat token -> f4kmm6p|=�p�n��DB�Du{��
+
+Подставляем разные аргументы к бинарнику:
+	./level09 1111 -> 1234
+	./level09 aaaa -> abcd
+-> Делаем вывод, что он делает сдвиг по позиции элемента
+
+Пишем программу (decode.c) и компилируем в бинарник:
+Далее копируем token в мак, чтобы прогнать его
+> scp -P 4242 level09@192.168.56.101:~/token ~/Desktop/sw/
+
+Исполняем:
+> ./a.out `cat token`
+Получаем ключ: f3iji1ju5yuevaus41q1afiuq
+
+> su flag09 f3iji1ju5yuevaus41q1afiuq
+> getflag -> получаем: s5cAJpM8ev6XHw998pRWG728z
+
+Done! =)

